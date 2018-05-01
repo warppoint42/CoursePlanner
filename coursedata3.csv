@@ -1,13 +1,44 @@
 208896,ANES70Q,Critical Illness: Patients; Physicians; and Society,UG,MED,Satisfactory/No Credit,N/A,Spring,3.8,2.5
 216427,ANES72Q,The Art of Medical Diagnosis: Enhancing Observational Skills through the Study of Art,UG,MED,Letter or Credit/No Credit,WAY-CE,Spring,4.03,2.5
-,ANES80Q,Researching Strange Things,UG,MED,Letter or Credit/No Credit,N/A,None,4.045,-160.0
-127649,ANES199,Undergraduate Research,UG,MED,Letter or Credit/No Credit,N/A,Autumn;Winter;Spring;Summer,4.165,-160.0
+,ANES80Q,Researching Strange Things,UG,MED,Letter or Credit/No Credit,N/A,None,4.045,0.0
+127649,ANES199,Undergraduate Research,UG,MED,Letter or Credit/No Credit,N/A,Autumn;Winter;Spring;Summer,4.165,0.0
 206638,ANES202,Anesthesiology and Pathophysiologic Implications for the Perioperative Patient,MED,MED,Medical School MD Grades,N/A,Winter,0.0,2.5
-215824,ANES204,Medical Education in the New Millenium: Innovation and Digital Disruption,GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,None,4.045,-160.0
+215824,ANES204,Medical Education in the New Millenium: Innovation and Digital Disruption,GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,None,4.045,0.0
 215131,ANES205,Engage and Empower Me: Myths and Truths of Designing for Patient Behavior,GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,None,4.087,2.5
 215380,ANES206,3D Printing and Biofabrication,GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,None,3.949,2.5
 127654,ANES207,Medical Acupuncture,MED,MED,Medical Satisfactory/No Credit,N/A,Spring,0.0,2.5
 218708,ANES208A,Data Science for Digital Health and Precision Medicine,GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,Autumn,3.84,2.5
 205903,ANES215,Journal Club for Neuroscience; Behavior and Cognition Scholarly Concentration,MED,MED,Medical School MD Grades,N/A,Winter,0.0,2.5
-,ANES243,Introduction to Integrative Medicine (FAMMED 243),MED,MED,Medical School MD Grades,N/A,None,0.0,-160.0
-127657,ANES280,Early Clinical Experience in Anesthesia,MED,MED,Medical School MD Grades,N/A,Autumn;Winter;Spring;Summer,0.0,-160.0
+,ANES243,Introduction to Integrative Medicine (FAMMED 243),MED,MED,Medical School MD Grades,N/A,None,0.0,0.0
+127657,ANES280,Early Clinical Experience in Anesthesia,MED,MED,Medical School MD Grades,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+127658,ANES299,Directed Reading in Anesthesiology,MED,MED,Medical School MD Grades,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+204809,ANES370,Medical Scholars Research,MED,MED,Medical School MD Grades,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+127686,ANES399,Graduate Research,GR,MED,Medical Satisfactory/No Credit,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+201414,BIOC109A,The Human Genome and Disease (BIO 109A; BIOC 209A; HUMBIO 158),UG,MED,Letter or Credit/No Credit,GER: DB-NatSci; WAY-SMA,Winter,3.715,0.0
+206030,BIOC109B,The Human Genome and Disease: Genetic Diversity and Personalized Medicine (BIO 109B),UG,MED,Letter or Credit/No Credit,GER: DB-NatSci; WAY-SMA,Spring,3.716,2.5
+201475,BIOC199,Undergraduate Research,UG,MED,Letter or Credit/No Credit,N/A,Autumn;Winter;Spring;Summer,3.894,0.0
+210251,BIOC200,Applied Biochemistry,MED,MED,Medical School MD Grades,N/A,Autumn,0.0,0.0
+212148,BIOC202,Biochemistry Bootcamp,GR,MED,Satisfactory/No Credit,N/A,Autumn,0.0,0.0
+203354,BIOC205,Molecular Foundations of Medicine,MED,MED,Medical School MD Grades,N/A,Autumn,3.25,0.0
+201414,BIOC209A,The Human Genome and Disease (BIO 109A; BIOC 109A; HUMBIO 158),GR,MED,Letter or Credit/No Credit,N/A,Winter,3.715,0.0
+127322,BIOC215,Frontiers in Biological Research (DBIO 215; GENE 215),GR,MED,Medical Satisfactory/No Credit,N/A,Autumn;Winter;Spring,0.61,0.0
+127328,BIOC221,The Teaching of Biochemistry,GR,MED,Medical Satisfactory/No Credit,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+127579,BIOC224,Advanced Cell Biology (BIO 214; MCP 221),GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,Winter,4.233,0.0
+208892,BIOC236,Biology by the Numbers (APPPHYS 236),GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,None,4.598,0.0
+127288,BIOC241,Biological Macromolecules (BIOE 241; BIOPHYS 241; SBIO 241),GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,Winter,4.2,0.0
+203383,BIOC257,Currents in Biochemistry,GR,MED,Medical Satisfactory/No Credit,N/A,Autumn,0.5,2.5
+127339,BIOC299,Directed Reading in Biochemistry,GR,MED,Medical Satisfactory/No Credit,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+213303,BIOC350,Development of Thesis Research,GR,MED,Satisfactory/No Credit,N/A,Autumn,0.44,2.5
+213288,BIOC360,Developing an Original Research Proposal,GR,MED,Medical Satisfactory/No Credit,N/A,Winter,0.56,2.5
+205566,BIOC370,Medical Scholars Research,MED,MED,Medical School MD Grades,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+127341,BIOC399,Graduate Research and Special Advanced Work,GR,MED,Medical Satisfactory/No Credit,N/A,Autumn;Winter;Spring;Summer,4.0,0.0
+103400,BIOC459,Frontiers in Interdisciplinary Biosciences (BIO 459; BIOE 459; CHEM 459; CHEMENG 459; PSYCH 459),GR,MED,Medical Satisfactory/No Credit,N/A,Autumn;Winter;Spring,0.5,2.5
+204449,BIOC801,TGR Project,GR,MED,TGR,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+127344,BIOC802,TGR Dissertation,GR,MED,TGR,N/A,Autumn;Winter;Spring;Summer,0.0,0.0
+218593,BIODS210,Configuration of the US Healthcare System and the Application of Big Data/Analytics,GR,MED,Medical Satisfactory/No Credit,N/A,None,0.0,2.5
+219033,BIODS215,Topics in Biomedical Data Science: Large-scale inference,GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,Winter,4.18,2.5
+215223,BIODS231,Survival Analysis (STATS 331),GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,None,4.456,0.0
+218601,BIODS237,Deep Learning in Genomics and Biomedicine (BIOMEDIN 273B; CS 273B; GENE 236),GR,MED,Medical Option (Med-Ltr-CR/NC),N/A,Autumn,4.024,7.25
+128652,BIODS260A,Workshop in Biostatistics (STATS 260A),GR,MED,Medical Satisfactory/No Credit,N/A,Autumn,0.29,2.5
+125455,BIODS260B,Workshop in Biostatistics (STATS 260B),GR,MED,Medical Satisfactory/No Credit,N/A,Winter,0.29,0.0
+128654,BIODS260C,Workshop in Biostatistics (STATS 260C),GR,MED,Medical Satisfactory/No Credit,N/A,Spring,0.0,2.5

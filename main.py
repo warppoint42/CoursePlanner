@@ -10,7 +10,7 @@ def performance_for(letter, data):
 
 # returns performance percentage for a letter
 def percent_for(letter, data):
-    start = letter + '","the_count":'
+    start = '"' + letter + '","the_count":'
     end = '}'
     s = data
     return 0.01 * float((s.split(start))[1].split(end)[0])
@@ -196,6 +196,8 @@ with open("sources_cleaned.csv", "r") as ins:
             # format: id,shortname,name,school,dept,grading,reqs,terms,gpa,hrs
             f.write(id + ',' + line.strip() + ',' + get_UG_REQS() + ',' + get_terms() + ','
                     + str(get_avg_gpa()) + ',' + str(get_avg_intensity()) + '\n')
+            print get_avg_gpa()
+            print get_performance()
 
 
 # print(browser.page_source)
