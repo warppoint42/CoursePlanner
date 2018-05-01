@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import os
 
 def performance_for(letter, data):
 	start = letter + '","the_count":'
@@ -62,7 +63,7 @@ def course_exists(data):
 #########################################MAIN STARTS HERE
 
 
-path_to_chromedriver = '/Users/danielhuang/Documents/ExploreCourses/chromedriver' # change path as needed
+path_to_chromedriver = os.getcwd() + '/chromedriver' # change path as needed
 browser = webdriver.Chrome(executable_path = path_to_chromedriver)
 
 url = 'https://carta.stanford.edu/course/ECON52/'
@@ -75,7 +76,7 @@ while "ECON52" not in browser.current_url:
 
 f = open('coursedata3', 'w');
 
-with open("sources_extended2", "r") as ins:
+with open("sources_extended2.csv", "r") as ins:
     #array = []
     for line in ins:
     	browser.get('https://carta.stanford.edu/course/'+line[0:line.find(",")])
