@@ -1,5 +1,6 @@
 from selenium import webdriver
 import time
+import json
 import os
 
 
@@ -162,6 +163,18 @@ def calc_overall():
     return 0
 
 
+def get_seq_dict():
+    index = data.find('gon.paired_pinned_courses_dict')
+    if index == -1:
+        return dict()
+    s = data[index:]
+    start = 'dict='
+    end = ';'
+    str = (s.split(start))[1].split(end)[0]
+    return json.loads(str)
+
+
+
 # self-explanatory
 def course_exists(data):
     if data.find("Course not found!") != -1:
@@ -196,8 +209,7 @@ with open("sources_cleaned.csv", "r") as ins:
             # format: id,shortname,name,school,dept,grading,reqs,terms,gpa,hrs
             f.write(id + ',' + line.strip() + ',' + get_UG_REQS() + ',' + get_terms() + ','
                     + str(get_avg_gpa()) + ',' + str(get_avg_intensity()) + '\n')
-            print get_avg_gpa()
-            print get_performance()
+
 
 
 # print(browser.page_source)
