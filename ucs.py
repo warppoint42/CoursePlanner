@@ -268,8 +268,8 @@ class ClassDB:
                 else:
                     compgpa = self.getGPA(id)
                 temp = self.getUnits(id)
-                units += units
-                totgpa += units * compgpa
+                units += temp
+                totgpa += temp * compgpa
         return totgpa/units
 
 
