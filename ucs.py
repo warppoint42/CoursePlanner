@@ -163,10 +163,10 @@ class Schedule:
 
     # Check if all classes assigned
     def end(self):
-        return len(req) == 0
+        return len(self.req) == 0
 
     def get_req(self):
-        return req
+        return self.req
 
     def get_assignments(self):
         return self.assignments
@@ -174,23 +174,23 @@ class Schedule:
     # Return a set of valid course ids to be assigned to the current quarter
     def get_req_quarter(self, classdb):
         ids = set()
-        for id in req:
+        for id in self.req:
             if self.currq in classdb.getQuarters(id):
                 ids.add(id)
         return ids
 
     # Add a class to the current quarter, no safety checks
     def add(self, id):
-        req.remove(id)
+        self.req.remove(id)
         self.assignments[self.currqindex].add(id)
 
     # Proceed to the next quarter, return false if last quarter
     def nextq(self):
-        if self.currqindex == nquarters - 1:
-            return false
+        if self.currqindex == self.nquarters - 1:
+            return False
         self.currqindex += 1
         self.currq = (self.currq + 1) % 3
-        return true
+        return True
 
     # Return total number of units in current quarter
     def get_totunits(self, classdb):
