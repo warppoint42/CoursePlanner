@@ -3,6 +3,7 @@ import heapq, collections, re, sys, time, os, random
 ############################################################
 # Abstract interfaces for search problems and search algorithms.
 
+
 class SearchProblem:
     # Return the start state.
     def startState(self): raise NotImplementedError("Override me")
@@ -13,6 +14,7 @@ class SearchProblem:
     # Return a list of (action, newState, cost) tuples corresponding to edges
     # coming out of |state|.
     def succAndCost(self, state): raise NotImplementedError("Override me")
+
 
 class SearchAlgorithm:
     # First, call solve on the desired SearchProblem |problem|.
@@ -25,6 +27,7 @@ class SearchAlgorithm:
 
 ############################################################
 # Uniform cost search algorithm (Dijkstra's algorithm).
+
 
 class UniformCostSearch(SearchAlgorithm):
     def __init__(self, verbose=0):
@@ -108,4 +111,177 @@ class PriorityQueue:
             self.priorities[state] = self.DONE
             return (state, priority)
         return (None, None) # Nothing left...
+
+
+# A search that finds a valid course plan
+# nquarters - the number of quarters to fill
+# firstq - the first quarter, Autumn = 0, Winter = 1, Spring = 2
+# req - a set of classes needed to be taken by id number
+# classdb - a class database
+class RandomPlanSearch(SearchProblem):
+    def __init__(self, nquarters, firstq, req, classdb):
+        self.nquarters = nquarters
+        self.firstq = firstq
+        self.req = req
+        self.classdb = classdb
+
+    # Return a schedule with no assignments
+    def startState(self):
+        return Schedule(self.nquarters, self.firstq, self.req)
+
+    # Check if all classes were assigned
+    def isEnd(self, state):
+        return state.end()
+
+    # Try to assign all classes to current quarter, or proceed to next quarter
+    def succAndCost(self, state):
+        next = []
+        for id in state.get_req_quarter(self.classdb):
+            units = self.classdb.getUnits(id)
+            if state.get_totunits(self.classdb) + units <= 20:
+                nstate = copy.deepcopy(state)
+                next.append('id', nstate, 1)
+        nstate = copy.deepcopy(state)
+        if nstate.nextq():
+            next.append('nextq', nstate, 1)
+        return next
+
+
+class Schedule:
+    # nquarters - the number of quarters to fill
+    # firstq - the first quarter, Autumn = 0, Winter = 1, Spring = 2
+    # req - a set of classes needed to be taken by id number
+    # assignments - a list of sets of course assignment ids, one per quarter
+    # currq - the current quarter type
+    # currqindex - the current quarter index in 'assignments'
+    def __init__(self, nquarters, firstq, req):
+        self.assignments = [set() for i in range(nquarters)]
+        self.currq = firstq
+        self.currqindex = 0
+        self.req = req
+        self.nquarters = nquarters
+
+    # Check if all classes assigned
+    def end(self):
+        return len(req) == 0
+
+    def get_req(self):
+        return req
+
+    def get_assignments(self):
+        return self.assignments
+
+    # Return a set of valid course ids to be assigned to the current quarter
+    def get_req_quarter(self, classdb):
+        ids = set()
+        for id in req:
+            if self.currq in classdb.getQuarters(id):
+                ids.add(id)
+        return ids
+
+    # Add a class to the current quarter, no safety checks
+    def add(self, id):
+        req.remove(id)
+        self.assignments[self.currqindex].add(id)
+
+    # Proceed to the next quarter, return false if last quarter
+    def nextq(self):
+        if self.currqindex == nquarters - 1:
+            return false
+        self.currqindex += 1
+        self.currq = (self.currq + 1) % 3
+        return true
+
+    # Return total number of units in current quarter
+    def get_totunits(self, classdb):
+        units = 0
+        for id in self.assignments[self.currqindex]:
+            units += classdb.getUnits(id)
+        return units
+
+    # Retun a list of units per quarter for evaluation
+    def units_per(self, classdb):
+        units = []
+        for i in range(self.nquarters):
+            total = 0
+            for id in self.assignments[i]:
+                total += classdb.getUnits(id)
+            units.append(total)
+        return units
+
+
+class ClassDB:
+    # cdata - a list of class data tuples in the form (id, shortname, longname, dept, school, GEs, quarters, avgGPA, hrs, units)
+    # quarters is a set of quarter ids
+    # seqdata - sequencing data in the form seq[(curr, compare)] = beforeGPA, sameGPA, afterGPA
+    def __init__(self, cdata, seqdata):
+        self.data = dict()
+        for id, shortname, longname, dept, school, GEs, quarters, avgGPA, hrs, units in cdata:
+            if id not in self.data:
+                self.data[id] = {}
+                self.data[id]['shortnames'] = [shortname]
+                self.data[id]['longname'] = longname
+                self.data[id]['dept'] = dept
+                self.data[id]['quarters'] = quarters
+                self.data[id]['avgGPA'] = avgGPA
+                self.data[id]['hrs'] = hrs
+                self.data[id]['units'] = units
+            else:
+                self.data[id]['shortname'].append(shortname)
+        self.seqdata = seqdata
+
+    # Return valid quarters for class
+    def getQuarters(self, id):
+        return self.data[id]['quarters']
+
+    # Return units for class
+    def getUnits(self, id):
+        return self.data[id]['units']
+
+    # Return units for class
+    def getGPA(self, id):
+        return self.data[id]['avgGPA']
+
+    #Predict a gpa for a schedule based on sequencing data if possible, averaging all sequencing data
+    def gpaEval(self, schedule):
+        assignments = schedule.get_assignments()
+        totgpa = 0
+        units = 0
+        for quarternum in range(len(assignments)):
+            for id in assignments[quarternum]:
+                ct = 0
+                compgpa = 0
+                for quarternumc in range(len(assignments)):
+                    for idc in assignments[quarternumc]:
+                        if idc == id:
+                            continue
+                        if (id, idc) in self.seqdata:
+                            ct += 1
+                            if quarternum < quarternumc:
+                                compgpa += self.seqdata(id, idc)[0]
+                            if quarternum == quarternumc:
+                                compgpa += self.seqdata(id, idc)[1]
+                            else:
+                                compgpa += self.seqdata(id, idc)[2]
+                if ct != 0:
+                    compgpa /= ct
+                else:
+                    compgpa = self.getGPA(id)
+                temp = self.getUnits(id)
+                units += units
+                totgpa += units * compgpa
+        return totgpa/units
+
+
+
+
+
+
+
+
+
+
+
+
+
 
