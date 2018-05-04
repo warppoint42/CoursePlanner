@@ -1,4 +1,4 @@
-import heapq, collections, re, sys, time, os, random
+import heapq, collections, re, sys, time, os, random, copy
 
 ############################################################
 # Abstract interfaces for search problems and search algorithms.
